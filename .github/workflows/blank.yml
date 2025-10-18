@@ -1,0 +1,226 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Menu, X, Mail, Phone, Github, Linkedin } from "lucide-react";
+
+// Single-file React component (TailwindCSS required in your app).
+// Usage: drop this component into a React app (e.g. create-react-app, Vite)
+// Make sure TailwindCSS + Framer Motion + lucide-react are installed.
+// This is a starter one-file site with Nav, Hero, Features, Portfolio, About, Contact.
+
+export default function ModernPortfolio() {
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-900 antialiased">
+      <header className="sticky top-0 z-50 backdrop-blur-sm bg-white/60 border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">EG</div>
+            <div>
+              <div className="font-semibold">YourName</div>
+              <div className="text-xs text-gray-500">Designer • Developer</div>
+            </div>
+          </div>
+
+          <nav className="hidden md:flex items-center gap-6 text-sm">
+            <a href="#home" className="hover:text-indigo-600">Home</a>
+            <a href="#work" className="hover:text-indigo-600">Work</a>
+            <a href="#about" className="hover:text-indigo-600">About</a>
+            <a href="#contact" className="hover:text-indigo-600">Contact</a>
+            <a href="#" className="ml-2 inline-flex items-center px-4 py-2 rounded-xl bg-indigo-600 text-white shadow">Hire me</a>
+          </nav>
+
+          <button className="md:hidden p-2 rounded-lg border"><Menu size={18} /></button>
+        </div>
+      </header>
+
+      <main className="max-w-6xl mx-auto px-6 py-12">
+        <section id="home" className="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <motion.h1
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl font-extrabold leading-tight"
+            >
+              I build delightful digital experiences.
+            </motion.h1>
+            <p className="mt-4 text-gray-600 max-w-xl">
+              Hi — I’m a product designer and front-end developer who loves turning ideas into pixel-perfect websites and apps. I focus on clarity, performance and polished interactions.
+            </p>
+
+            <div className="mt-6 flex gap-3">
+              <a href="#work" className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border hover:bg-indigo-50">See my work</a>
+              <a href="#contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-indigo-600 text-white">Get in touch</a>
+            </div>
+
+            <div className="mt-8 grid grid-cols-3 gap-4 text-sm">
+              <div className="p-3 bg-white rounded-lg shadow-sm text-center">
+                <div className="font-semibold">5+</div>
+                <div className="text-gray-500">Years experience</div>
+              </div>
+              <div className="p-3 bg-white rounded-lg shadow-sm text-center">
+                <div className="font-semibold">20+</div>
+                <div className="text-gray-500">Projects shipped</div>
+              </div>
+              <div className="p-3 bg-white rounded-lg shadow-sm text-center">
+                <div className="font-semibold">Open</div>
+                <div className="text-gray-500">For freelance</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="order-first md:order-last">
+            <motion.div
+              initial={{ scale: 0.98, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              className="w-full rounded-2xl bg-gradient-to-br from-indigo-50 to-pink-50 p-8 shadow-lg"
+            >
+              <div className="w-full h-64 rounded-xl bg-white/60 flex items-center justify-center border-dashed border-2 border-gray-200">
+                <svg width="260" height="140" viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="2" width="256" height="136" rx="12" stroke="#E6E7EE" strokeWidth="3" fill="#FFF" />
+                  <text x="20" y="40" fill="#A1A1AA" fontSize="14" fontFamily="sans-serif">Project preview</text>
+                  <text x="20" y="70" fill="#A1A1AA" fontSize="12" fontFamily="sans-serif">Add screenshots or animated GIFs here.</text>
+                </svg>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="work" className="mt-16">
+          <h2 className="text-2xl font-bold">Selected work</h2>
+          <p className="text-gray-600 mt-2">A small selection of recent projects — click to explore details.</p>
+
+          <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <article key={i} className="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div className="h-40 bg-gradient-to-br from-indigo-100 to-pink-100 flex items-center justify-center">Project {i + 1}</div>
+                <div className="p-4">
+                  <h3 className="font-semibold">Project Title {i + 1}</h3>
+                  <p className="text-sm text-gray-500 mt-2">Short description explaining the goal and outcome. Tools: React, Tailwind, Figma.</p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <a href="#" className="text-sm hover:text-indigo-600">Case study →</a>
+                    <div className="text-xs text-gray-400">Web • 2025</div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="about" className="mt-16 grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 className="text-2xl font-bold">About me</h2>
+            <p className="mt-4 text-gray-600">I combine clean UI, thoughtful UX and performant code to ship products that people love. I care about accessibility, small animations that delight, and well-structured components.
+            </p>
+
+            <ul className="mt-4 grid grid-cols-2 gap-2 text-sm text-gray-600">
+              <li>• UI Design</li>
+              <li>• Front-end Development</li>
+              <li>• Interaction Design</li>
+              <li>• Accessibility</li>
+            </ul>
+          </div>
+
+          <div>
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <h3 className="font-semibold">Skills</h3>
+              <div className="mt-3 space-y-3">
+                {['React','Tailwind','Typescript','Figma'].map(s => (
+                  <div key={s} className="text-sm">
+                    <div className="flex justify-between mb-1"><span>{s}</span><span className="text-xs text-gray-400">80%</span></div>
+                    <div className="w-full bg-gray-100 rounded-full h-2"><div className="h-2 rounded-full" style={{width:'80%'}}></div></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="mt-16">
+          <h2 className="text-2xl font-bold">Get in touch</h2>
+          <p className="text-gray-600 mt-2">Interested in working together? Send a message or email me directly.</p>
+
+          <div className="mt-6 grid md:grid-cols-2 gap-6">
+            <form className="bg-white p-6 rounded-xl shadow-sm space-y-4">
+              <div>
+                <label className="block text-sm text-gray-600">Name</label>
+                <input className="mt-1 w-full rounded-md border p-2" placeholder="Your name" />
+              </div>
+              <div>
+                <label className="block text-sm text-gray-600">Email</label>
+                <input className="mt-1 w-full rounded-md border p-2" placeholder="you@domain.com" />
+              </div>
+              <div>
+                <label className="block text-sm text-gray-600">Message</label>
+                <textarea className="mt-1 w-full rounded-md border p-2" rows={5} placeholder="Tell me about your project..."></textarea>
+              </div>
+              <div className="flex items-center gap-3">
+                <button type="button" className="px-5 py-2 rounded-lg bg-indigo-600 text-white">Send message</button>
+                <div className="text-sm text-gray-500">Or email: <a href="mailto:hello@you.com" className="text-indigo-600">hello@you.com</a></div>
+              </div>
+            </form>
+
+            <aside className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="font-semibold">Contact</h3>
+              <div className="mt-4 space-y-3 text-sm text-gray-600">
+                <div className="flex items-center gap-2"><Mail size={16} /> hello@you.com</div>
+                <div className="flex items-center gap-2"><Phone size={16} /> +233 24 000 0000</div>
+                <div className="flex items-center gap-3 mt-4">
+                  <a href="#" aria-label="github"><Github size={18} /></a>
+                  <a href="#" aria-label="linkedin"><Linkedin size={18} /></a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-gray-200 mt-12 bg-white/60">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-600">
+          <div>© {new Date().getFullYear()} YourName. All rights reserved.</div>
+          <div className="flex items-center gap-4 mt-3 md:mt-0">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#contact" className="px-3 py-1 rounded-lg bg-indigo-50">Contact</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
